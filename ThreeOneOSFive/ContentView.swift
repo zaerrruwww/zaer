@@ -45,7 +45,7 @@ struct ContentView: View {
             CleanerView()
         }
         .sheet(item: $patchStore.passwordRequest, onDismiss: patchStore.cancelUnlock) { _ in
-            PatchUnlockPrompt(store: patchStore)
+            PatchUnlockView(store: patchStore)
         }
         .onAppear {
             syncPatchStates()
@@ -666,7 +666,7 @@ private enum PatchAudioFeedback {
     }
 }
 
-private struct AnimatedHyperBackdrop: View {
+struct AnimatedHyperBackdrop: View {
     @State private var animateGlow = false
 
     var body: some View {
